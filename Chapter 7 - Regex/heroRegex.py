@@ -22,6 +22,10 @@ batRegex4 = re.compile(r'Bat(wo)+man')
 # Correspondendo a repetições específicas usando chaves
 haRegex = re.compile(r'(Ha){3}')
 
+# Correspondências greedy(maior string possível) e nongreendy(menor string possível)
+greedyHaRegex = re.compile(r'(Ha){3,5}')
+nongreedyHaRegex = re.compile(r'(Ha){3,5}?')
+
 if __name__ == '__main__':
     # Fazendo correspondência de vários grupos com pipe |
     moHero1 = heroRegex.search('Batman and Tina Fey.')
@@ -69,3 +73,9 @@ if __name__ == '__main__':
     print(moHa.group())
     mo2Ha = haRegex.search('Ha')
     print(mo2Ha == None)
+
+    # Correspondências greedy(maior string possível) e nongreendy(menor string possível)
+    moGreedy = greedyHaRegex.search('HaHaHaHaHa')
+    print(moGreedy.group())
+    moNonGreedy = nongreedyHaRegex.search('HaHaHaHaHa')
+    print(moNonGreedy.group())
