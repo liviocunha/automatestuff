@@ -16,6 +16,9 @@ phoneRegex = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d')
 # Correspondendo a zero ou mais ocorrências usando asterisco *
 batRegex3 = re.compile(r'Bat(wo)*man')
 
+# Correspondendo a uma ou mais ocorrências usando o sinal de adição
+batRegex4 = re.compile(r'Bat(wo)+man')
+
 if __name__ == '__main__':
     # Fazendo correspondência de vários grupos com pipe |
     moHero1 = heroRegex.search('Batman and Tina Fey.')
@@ -49,3 +52,11 @@ if __name__ == '__main__':
     print(mo2Bat3.group())
     mo3Bat3 = batRegex3.search('The Adventures of Batwowowowoman')
     print(mo3Bat3.group())
+
+    # Correspondendo a uma ou mais ocorrências usando o sinal de adição
+    moBat4 = batRegex4.search('The Adventures of Batwoman')
+    print(moBat4.group())
+    mo2Bat4 = batRegex4.search('The Adventures of Batwowowowoman')
+    print(mo2Bat4.group())
+    mo3Bat4 = batRegex4.search('The Adventures of Batman')
+    print(mo3Bat4 == None)
