@@ -19,6 +19,9 @@ batRegex3 = re.compile(r'Bat(wo)*man')
 # Correspondendo a uma ou mais ocorrências usando o sinal de adição
 batRegex4 = re.compile(r'Bat(wo)+man')
 
+# Correspondendo a repetições específicas usando chaves
+haRegex = re.compile(r'(Ha){3}')
+
 if __name__ == '__main__':
     # Fazendo correspondência de vários grupos com pipe |
     moHero1 = heroRegex.search('Batman and Tina Fey.')
@@ -60,3 +63,9 @@ if __name__ == '__main__':
     print(mo2Bat4.group())
     mo3Bat4 = batRegex4.search('The Adventures of Batman')
     print(mo3Bat4 == None)
+
+    # Correspondendo a repetições específicas usando chaves
+    moHa = haRegex.search('HaHaHa')
+    print(moHa.group())
+    mo2Ha = haRegex.search('Ha')
+    print(mo2Ha == None)
